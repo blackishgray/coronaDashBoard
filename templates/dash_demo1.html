@@ -1,13 +1,7 @@
-{% load static %}
-{% block content %}
+{% extends 'layout.html' %}
 {% load plotly_dash %}
-<head>
-	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-</head>
-<h1>Home Page</h1>
-
-    {% plotly_app name='SimpleExample1' ratio=0.45 %}
-<br>
-    <!-- {{ plot1 | safe }} -->
-
+{% block content %}
+<div class="contanier-fluid second-div">
+	{% plotly_app name='daily_cases' ratio=1 %}
+</div>
 {% endblock %}

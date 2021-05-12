@@ -4,50 +4,36 @@ from dash.dependencies import Input, Output
 import plotly.graph_objs as go
 from django_plotly_dash import DjangoDash
 
+
+#import for dash file
+from website.dash_app import coronaAPI1 as capi
+from website.dash_app import CoronaEDA2 as ceda
+
+
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-app = DjangoDash('SimpleExample1', external_stylesheets=external_stylesheets)
+app2 = DjangoDash('daily_cases')
 
+app2.layout = html.Div(style={'text-align':'center'}, children=[
+    html.Hr(),
+    html.H3('Count of Cases Reported on each day.'),
+    dcc.Dropdown(style={'width':'400px'}, id='dropdown-2',
 
-app.layout = html.Div([
-    html.H1('Square Root Slider Graph'),
-    dcc.Graph(id='slider-graph', animate=True, style={"backgroundColor": "#1a2d46", 'color': '#ffffff'}),
-    dcc.Slider(
-        id='slider-updatemode',
-        marks={i: '{}'.format(i) for i in range(20)},
-        max=20,
-        value=2,
-        step=1,
-        updatemode='drag',
-    ),
+            options=[
+                {'label': 'Confirmed Cases', 'value':'dailyconfirmed'},
+                {'label': "Recovered Cases", 'value':'dailyrecovered'},
+                {'label': "Deceased Cases", 'value':'dailydeceased'},
+            ],
+            value='dailyconfirmed',
+        ),
+    html.Br(),
+    dcc.Graph('daily_cases_plot'),
 ])
 
-
-@app.callback(
-               Output('slider-graph', 'figure'),
-              [Input('slider-updatemode', 'value')])
-def display_value(value):
-
-
-    x = []
-    for i in range(value):
-        x.append(i)
-
-    y = []
-    for i in range(value):
-        y.append(i*i)
-
-    graph = go.Scatter(
-        x=x,
-        y=y,
-        name='Manipulate Graph'
+@app2.callback(
+    Output('daily_cases_plot', 'figure'),
+    [Input('dropdown-2', 'value')]
     )
-    layout = go.Layout(
-        paper_bgcolor='#27293d',
-        plot_bgcolor='rgba(0,0,0,0)',
-        xaxis=dict(range=[min(x), max(x)]),
-        yaxis=dict(range=[min(y), max(y)]),
-        font=dict(color='white'),
-
-    )
-    return {'data': [graph], 'layout': layout}
+def figure2(status):
+    print('Done')
+    return ceda.daily_count_cases_india(status)

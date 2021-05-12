@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os 
-
+import mimetypes
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'website',
     'django_plotly_dash.apps.DjangoPlotlyDashConfig',
     'channels',
-    'channels_redis'
+    'channels_redis',
+    'dpd_static_support',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_plotly_dash.middleware.ExternalRedirectionMiddleware',
 ]
 
 ROOT_URLCONF = 'app.urls'
@@ -145,9 +147,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-CRISPY_TEMPLATE_PACK = 'bootstap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 ASGI_APPLICATION = 'app.routing.application'
+
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
@@ -169,9 +172,12 @@ PLOTLY_COMPONENTS = [
     'dash_core_components',
     'dash_html_components',
     'dash_renderer',
-    'dpd_components'
+    'dpd_components',
+    'dpd_static_support',
 ]
 
 X_FRAME_OPTIONS = 'ALLOWALL'
 
 XS_SHARING_ALLOWED_METHODS = ['POST','GET','OPTIONS', 'PUT', 'DELETE']
+
+mimetypes.add_type("text/css", ".css", True)

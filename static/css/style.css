@@ -1,4 +1,27 @@
-.div2{
+body {
+  background-color: rgb(17,  17, 17);
+  color: #FFF;
+}
+/*@media screen and (prefers-color-scheme: light) {
+  body {
+    background-color: white;
+    color: black;
+  }
+}
+*/
+.card{
+	height: 100%;
 	width: 600px;
+}
+
+.first-div{
 	height: 600px;
+}
+
+.second-div{
+	height: 600px;
+}
+
+h2{	
+	color:white;
 }

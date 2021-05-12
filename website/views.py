@@ -3,6 +3,7 @@ from plotly.offline import plot
 import plotly.graph_objects as go
 
 from website.dash_app import spare_file
+from website.dash_app import dash_code
 
 # Create your views here.
 def index(request):

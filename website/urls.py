@@ -1,7 +1,7 @@
 from django.urls import path 
 
 from . import views
-from website.dash_app import simpleexample, simpleexample1, spare_file
+# from website.dash_app import simpleexample, simpleexample1, spare_file
 
 urlpatterns = [
 	path('', views.index, name='index'),
