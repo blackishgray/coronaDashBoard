@@ -1,0 +1,22 @@
+{% load static %}
+{% block content %}
+{% load plotly_dash %}
+<head>
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<h1>Home Page</h1>
+
+<div class="div2">
+	{% plotly_app name='SimpleExample' ratio=0.45 %}
+</div>
+<br>
+<br>
+<hr>
+<div class="div2">
+	{% plotly_app name='SimpleExample1' ratio=0.45 %}
+</div>
+<br>
+<!-- {{ plot1 | safe }} -->
+
+{% endblock %}
