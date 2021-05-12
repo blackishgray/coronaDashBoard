@@ -17,15 +17,11 @@ app1 = DjangoDash('india_plot')
 
 ###################################################################
 #######figure 1 #################
-app1.layout = html.Div(className='card', id='main-div', children=[
+app1.layout = html.Div(style={"background-color":"rgb(17, 17, 17)"}, className='card', id='main-div', children=[
 	
 	html.Br(),
 
 	html.Div(className='card', id='div1', style={'text-align': 'center'}, children=[
-
-		html.H2(id='heading1', children=[
-			"Vizualization of India based on specific conditions of COVID-19 Cases Reported."
-			]),
 
 		dcc.Dropdown(className='dropdown',id='dropdown-1',
 
@@ -64,10 +60,6 @@ app2.layout = html.Div(className='card', children=[
 
 	html.Div(className='card', id='div1', style={'text-align': 'center'}, children=[
 
-		html.H2(id='heading1', children=[
-			"Trend line of total cases of COVID-19 reported in India"
-			]),
-		 
 		html.Br(),
 		dcc.Graph(figure=total_cases_india),
 		]),

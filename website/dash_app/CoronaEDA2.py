@@ -57,7 +57,7 @@ def daily_count_cases_india(status):
     else:
         clr = ['darkturquoise']
     fig = px.area(time_series, x='Date', y=status, template='plotly_dark', color_discrete_sequence=clr)
-    fig.update_layout(hovermode='x', hoverlabel=dict(
+    fig.update_layout(title="Daily Cases Reported in India", hovermode='x', hoverlabel=dict(
 #         bgcolor = 'white',
         font_size=18,
         font_family='Helvetica'
@@ -76,7 +76,7 @@ def daily_count_cases_india(status):
 #plot for recovery and death rate in India over the period of 1.5 years roughly
 def recovery_death_rate_india():
     fig = px.line(time_series, x='Date', y=['recovery rate', 'mortality rate'])
-    fig.update_layout(template='plotly_dark', hovermode='x', hoverlabel=dict(
+    fig.update_layout(title="Recovery and Mortality Rate in India through the Pandemic", template='plotly_dark', hovermode='x', hoverlabel=dict(
         font_size=18,
         font_family='helvetica',
     ), showlegend=False)

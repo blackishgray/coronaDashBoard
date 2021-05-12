@@ -14,9 +14,9 @@ def index(request):
 	}
 	return render(request, 'index.html', context=context)
 
-def home(request):
+def india(request):
     return render(request, 'dash_demo.html')
 
-def new(request):
+def states(request):
     return render(request, 'dash_demo1.html')
 
