@@ -140,8 +140,9 @@ def recvry_rate_state(state):
         font_size=18,
         font_family='Helvetica'
     ), showlegend=False)
-    fig.update_traces(hovertemplate='%{y}')
-    fig.update_yaxes(title='Scale in %')
+    fig.update_traces(hovertemplate='%{y*100}')
+    fig.update_yaxes(title='Rate in decimal', showgrid=False, side='right')
+    fig.update_xaxes(showgrid=False)
     return fig
 
 
@@ -168,8 +169,8 @@ def bar_graph_for_current(state,status):
         font_family='Helvetica',
     ))
     fig.update_traces(hovertemplate='%{y}')
-    fig.update_yaxes(title=f'{status.capitalize()}')
-    fig.update_xaxes(title=f'{state.capitalize()}')
+    fig.update_yaxes(title=f'{status.capitalize()}', showgrid=False)
+    fig.update_xaxes(title=f'{state.capitalize()}', showgrid=False)
     return fig
 
 
@@ -195,6 +196,8 @@ def bar_graph_overall(state, status):
                          font_family='Helvetica'
                      ))
     fig.update_traces(hovertemplate='%{y}')
+    fig.update_xaxes(showgrid=False)
+    fig.update_yaxes(showgrid=False)
     return fig
 
 

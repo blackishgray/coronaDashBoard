@@ -18,7 +18,7 @@ app1 = DjangoDash('india_plot')
 ###################################################################
 #######figure 1 #################
 app1.layout = html.Div(style={"background-color":"rgb(17, 17, 17)"}, className='card', id='main-div', children=[
-	
+
 	html.Br(),
 
 	html.Div(className='card', id='div1', style={'text-align': 'center'}, children=[
@@ -46,47 +46,42 @@ app1.layout = html.Div(style={"background-color":"rgb(17, 17, 17)"}, className='
 def figure1(status):
 	return capi.india_cases(status)
 
-#################################################################
-#########figure 2 #########################
+# #################################################################
+# #########figure 2 #########################
 
 
 
-app2 =  DjangoDash('total_cases_india_line_graph')
-
-total_cases_india = ceda.total_cases_india()
+app2 = DjangoDash('total_cases_india_line_graph')
 
 app2.layout = html.Div(className='card', children=[
 	html.Br(),
 
-	html.Div(className='card', id='div1', style={'text-align': 'center'}, children=[
+	html.Div(className='card', id='div2', style={'text-align': 'center'}, children=[
 
 		html.Br(),
-		dcc.Graph(figure=total_cases_india),
+		dcc.Graph(figure=ceda.total_cases_india()),
 		]),
 ])
 
-#########################################################
-#################figure 3 ######################
+# #########################################################
+# #################figure 3 ######################
 app3 = DjangoDash('daily_cases')
 
 app3.layout = html.Div(className='card', id='main-div1', children=[
-	
+
 	html.Br(),
 
-	html.Div(className='card', id='div4', style={'text-align': 'center'}, children=[
+	html.Div(className='card', id='div3', style={'text-align': 'center'}, children=[
 
-		html.H2(id='heading3', children=[
-			"Vizualization of India based on specific conditions of COVID-19 Cases Reported."
-			]),
-
-		dcc.Dropdown(className='dropdown',id='dropdown-2',
-
+		dcc.Dropdown(className='dropdown',id='dropdown-2', 
+			style={'width':'200px'},
 			options=[
 				{'label': 'Confirmed Cases', 'value':'dailyconfirmed'},
 				{'label': "Recovered Cases", 'value':'dailyrecovered'},
 				{'label': "Deceased Cases",  'value':'dailydeceased'},
 			],
 			value='dailyconfirmed',
+			placeholder='Select a status you want to vizualize..'
 			),
 		html.Br(),
 		dcc.Graph(id='daily_count_cases'),
@@ -100,22 +95,43 @@ def figure3(status):
 	return ceda.daily_count_cases_india(status)
 
 
-#################################################
-############figure 4##############
+# #################################################
+# ############figure 4##############
 app4 = DjangoDash('recovry_death_india')
-
-trend_lime_recovery_death = ceda.recovery_death_rate_india()
 
 app4.layout = html.Div(children=[
 	html.Br(),
 
 	html.Div(className='card', id='div4', style={'text-align': 'center'}, children=[
 
-		html.H2(id='heading1', children=[
-			"Trend line of Recovery and Death Rate in India"
-			]),
-		 
 		html.Br(),
-		dcc.Graph(figure=trend_lime_recovery_death),
+		dcc.Graph(figure=ceda.recovery_death_rate_india()),
 		]),
 ])
+
+
+app5 = DjangoDash('vaccine_1')
+
+
+app5.layout = html.Div(style={'color':'white'}, children=[
+	dcc.Graph(figure=ceda.vaccine_administered('India')),
+])
+
+
+app6 = DjangoDash('vaccine_2')
+
+
+app6.layout = html.Div(style={'color':'white'}, children=[
+	dcc.Graph(figure=ceda.vaccine_total_doses('India')),
+])
+
+
+app7 = DjangoDash('vaccine_3')
+
+
+app7.layout = html.Div(style={'color':'white'}, children=[
+	dcc.Graph(figure=ceda.aefi('India')),
+])
+
+
+

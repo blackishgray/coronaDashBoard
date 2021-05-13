@@ -63,7 +63,7 @@ def daily_count_cases_india(status):
         font_family='Helvetica'
     ), showlegend=True)
     fig.update_xaxes(rangeslider_visible=True, showgrid=False)
-    fig.update_yaxes(showgrid=False, title=f'{str.capitalize(status[5:])} Count', side='right')
+    fig.update_yaxes(showgrid=False, title=f'{str.capitalize(status[5:])} Count', side='right', showline=True, linewidth=2, linecolor='white')
     fig.update_traces(hovertemplate=f"{str.capitalize(status[5:])}: "+"%{y}")
     return fig
 
@@ -81,7 +81,7 @@ def recovery_death_rate_india():
         font_family='helvetica',
     ), showlegend=False)
     fig.update_xaxes(title='Date', title_font_family='Arial', showgrid=False)
-    fig.update_yaxes(title='Scale(%)', title_font_family='Arial', showgrid=False, side='right')
+    fig.update_yaxes(title='Scale(%)', title_font_family='Arial', showgrid=False, side='right', showline=True, linewidth=2, linecolor='white')
     fig.update_traces(hovertemplate='%{y}')
     # fig.update_traces(mode='markers+lines')
     return fig
@@ -93,10 +93,10 @@ def total_cases_india():
     fig = px.area(time_series, x='Date', y=['Total Deceased','Total Recovered', 'Total Confirmed'], color_discrete_sequence=['red', 'aqua', 'coral'])
     fig.update_layout(title="Total COVID-19 Cases reported in India" ,template='plotly_dark', hovermode='x unified',hoverlabel=dict(
         font_family='helvetica',
-        font_size=17,
+        font_size=13,
     ), showlegend=False)
     fig.update_traces(hovertemplate='%{y}')
-    fig.update_yaxes(title='Cases', side='right')
+    fig.update_yaxes(title='Cases', side='right', showline=True, linewidth=2, linecolor='white')
     fig.update_xaxes(showgrid=False)
     return fig
 
@@ -150,7 +150,7 @@ def plot_trend_line(state, status):
         font_family='Helvetica',
     ))
     fig.update_xaxes(rangeslider_visible=True, showgrid=False)
-    fig.update_yaxes(title=f"{df['Status'][0]} Cases of COVID-19", showgrid=False)
+    fig.update_yaxes(title=f"{df['Status'][0]} Cases of COVID-19", showgrid=False, showline=True, linewidth=2, linecolor='white')
     fig.update_traces(hovertemplate="%{y}", mode='markers',showlegend=False)
     return fig
 
@@ -184,6 +184,8 @@ def district_wise_cases(state, district):
         font_family='Helvetica',
     ), )
     fig.update_traces(hovertemplate="%{y}", showlegend=False)
+    fig.update_xaxes(showgrid=False)
+    fig.update_yaxes(showgrid=False, side='right', showline=True, linewidth=2, linecolor='white')
     return fig
 
 
@@ -215,12 +217,12 @@ def vaccine_administered(state):
     fig = px.area(data_frame=df, x='Updated On', y=['Total Doses Administered', 'Second Dose Administered', 'First Dose Administered', 
                                                     'Total Covaxin Administered', 'Total CoviShield Administered'])
     fig.update_layout(title=f'Total Count of Vaccinces Administered in {state} till date.', template='plotly_dark', hovermode='x unified', hoverlabel=dict(
-        font_family='Arial',
-        font_size=17,
+        font_family='Helvetica',
+        font_size=12,
     ), showlegend=False )
     fig.update_traces(hovertemplate="""%{y}""")
-    fig.update_xaxes(title='Date')
-    fig.update_yaxes(title='Amount of Viles')
+    fig.update_xaxes(title='Date',showgrid=False)
+    fig.update_yaxes(title='Amount of Viles', showgrid=False, side='right', showline=True, linewidth=2, linecolor='white')
     
     return fig
 
@@ -233,12 +235,12 @@ def vaccine_total_doses(state):
     df = vaccine_state_wise[vaccine_state_wise['State']==state]
     fig = px.area(data_frame=df, x='Updated On', y=['Transgender(Individuals Vaccinated)','Female(Individuals Vaccinated)',  'Male(Individuals Vaccinated)', 'Total Doses Administered',])
     fig.update_layout(title=f'Gender Distribution of Vaccinated Individuals in {state}', template='plotly_dark', hovermode='x unified', hoverlabel=dict(
-        font_family='Arial',
-        font_size=17,
+        font_family='Helvetica',
+        font_size=12,
     ), showlegend=False )
     fig.update_traces(hovertemplate="""%{y}""")
-    fig.update_xaxes(title='Date')
-    fig.update_yaxes(title='Amount of Viles')
+    fig.update_xaxes(title='Date', showgrid=False)
+    fig.update_yaxes(title='Amount of Viles', showgrid=False, side='right', showline=True, linewidth=2, linecolor='white')
     
     return fig
 
@@ -253,11 +255,12 @@ def aefi(state):
     df = vaccine_state_wise[vaccine_state_wise['State']==state]
     fig = px.area(data_frame=df, x='Updated On', y=['AEFI'], color_discrete_sequence=['white'])
     fig.update_layout(title=f'AEFI of {state}', template='plotly_dark', hovermode='x unified', hoverlabel=dict(
-        font_family='Arial',
-        font_size=17,
+        font_family='Helvetica',
+        font_size=12,
     ), showlegend=False )
     fig.update_traces(hovertemplate="""%{y}""")
-    # fig.udpate_xaxes()
+    fig.update_xaxes(showgrid=False)
+    fig.update_yaxes(showgrid=False, side='right', showline=True, linewidth=2, linecolor='white')
     return fig
 # aefi('Maharashtra')
 
@@ -342,10 +345,12 @@ def vaccine_district_trend(state, district):
     df = new_df(state, district)
     fig = px.line(df, x='Date', y=['Transgender(Individuals Vaccinated)', 'Female(Individuals Vaccinated)', 'Male(Individuals Vaccinated)', 'Total Individuals Registered'])
     fig.update_layout(title='Vaccination of Individual Gender.', template='plotly_dark', hoverlabel=dict(
-        font_size=20,
+        font_size=12,
         font_family='Helvetica',
     ), hovermode='x', showlegend=False)
     fig.update_traces(hovertemplate='%{y}')
+    fig.update_xaxes(showgrid=False)
+    fig.update_yaxes(showgrid=False, side='right', showline=True, linewidth=2, linecolor='white')
     return fig
 
 # vaccine_district_trend('Maharashtra', 'Mumbai')
@@ -360,10 +365,12 @@ def sessions_conducted(state, district):
     fig = px.bar(df, x='Date', y='Total Sessions Conducted', color_discrete_sequence=['indianred'], opacity=0.9)
     fig.update_layout(title=f'Vaccination Sessions Conducted in {district} of state {state}', template='plotly_dark', hovermode='x', hoverlabel=dict(
 #         bgcolor='white',
-        font_size=20,
+        font_size=12,
         font_family='Helvetica'
     ))
     fig.update_traces(hovertemplate='%{y}')
+    fig.update_xaxes(showgrid=False)
+    fig.update_yaxes(showgrid=False, side='right', showline=True, linewidth=2, linecolor='white')
     return fig
 
 
@@ -378,10 +385,11 @@ def district_vaccine_type(state, district):
     fig = px.area(df, x='Date', y=['Total Covaxin Administered', 'Total CoviShield Administered'], color_discrete_sequence=['coral', 'mistyrose'])
     fig.update_layout(title=f'Vaccination Sessions Conducted in {district} of state {state}', template='plotly_dark', hovermode='x', hoverlabel=dict(
 #         bgcolor='white',
-        font_size=20,
+        font_size=12,
         font_family='Helvetica'
     ), showlegend=False)
     fig.update_traces(hovertemplate='%{y}')
+    fig.update_yaxes(side='right', showgrid=False, showline=True, linewidth=2, linecolor='white')
     return fig
 
 
@@ -400,6 +408,8 @@ def dose_administered(state, district):
         font_family='Helvetica'
     ), showlegend=False)
     fig.update_traces(hovertemplate='%{y}')
+    fig.update_xaxes(showgrid=False)
+    fig.update_yaxes(showgrid=False, side='right', showline=True, linewidth=2, linecolor='white')
     return fig
 
 
