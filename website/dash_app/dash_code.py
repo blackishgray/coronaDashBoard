@@ -24,7 +24,7 @@ app1.layout = html.Div(style={"background-color":"rgb(17, 17, 17)"}, className='
 	html.Div(className='card', id='div1', style={'text-align': 'center'}, children=[
 
 		dcc.Dropdown(className='dropdown',id='dropdown-1',
-
+			style={'width':'200px'},
 			options=[
 				{'label': 'Confirmed Cases', 'value':'confirmed'},
 				{'label': "Recovered Cases", 'value': 'recovered'},
@@ -34,7 +34,7 @@ app1.layout = html.Div(style={"background-color":"rgb(17, 17, 17)"}, className='
 			value='confirmed',
 			),
 		html.Br(),
-		dcc.Graph(id='india_map'),
+		dcc.Graph(id='india_map', config={'displayModeBar':False}),
 		]),
 ])
 
@@ -59,7 +59,7 @@ app2.layout = html.Div(className='card', children=[
 	html.Div(className='card', id='div2', style={'text-align': 'center'}, children=[
 
 		html.Br(),
-		dcc.Graph(figure=ceda.total_cases_india()),
+		dcc.Graph(figure=ceda.total_cases_india(), config={'displayModeBar':False}),
 		]),
 ])
 
@@ -84,7 +84,7 @@ app3.layout = html.Div(className='card', id='main-div1', children=[
 			placeholder='Select a status you want to vizualize..'
 			),
 		html.Br(),
-		dcc.Graph(id='daily_count_cases'),
+		dcc.Graph(id='daily_count_cases', config={'displayModeBar':False}),
 		]),
 ])
 @app3.callback(
@@ -105,7 +105,7 @@ app4.layout = html.Div(children=[
 	html.Div(className='card', id='div4', style={'text-align': 'center'}, children=[
 
 		html.Br(),
-		dcc.Graph(figure=ceda.recovery_death_rate_india()),
+		dcc.Graph(figure=ceda.recovery_death_rate_india(), config={'displayModeBar':False}),
 		]),
 ])
 
@@ -113,25 +113,31 @@ app4.layout = html.Div(children=[
 app5 = DjangoDash('vaccine_1')
 
 
-app5.layout = html.Div(style={'color':'white'}, children=[
-	dcc.Graph(figure=ceda.vaccine_administered('India')),
+app5.layout = html.Div(children=[
+	dcc.Graph(figure=ceda.vaccine_administered('India'), config={'displayModeBar':False}),
 ])
 
 
 app6 = DjangoDash('vaccine_2')
 
 
-app6.layout = html.Div(style={'color':'white'}, children=[
-	dcc.Graph(figure=ceda.vaccine_total_doses('India')),
+app6.layout = html.Div(children=[
+	dcc.Graph(figure=ceda.vaccine_total_doses('India'), config={'displayModeBar':False}),
 ])
 
 
 app7 = DjangoDash('vaccine_3')
 
 
-app7.layout = html.Div(style={'color':'white'}, children=[
-	dcc.Graph(figure=ceda.aefi('India')),
+app7.layout = html.Div(style={'height':'600px'}, children=[
+	dcc.Graph(figure=ceda.aefi('India'), config={'displayModeBar':False}),
 ])
 
 
+
+app8 = DjangoDash('pie_india')
+
+app8.layout = html.Div(children=[
+	dcc.Graph(figure=ceda.gender_dis('India'), config={'displayModeBar':False}),
+])
 

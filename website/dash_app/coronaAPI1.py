@@ -262,13 +262,14 @@ def india_cases(status):
         lon = 'lon',
         zoom=3,
         opacity=0.5,
+        custom_data=['state', f'{status.lower()}'] 
     )
     fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0}, title = f"Status of overall   COVID-19 Cases in India.", template='plotly_dark', hoverlabel=dict(
         bgcolor=clr,
         font_size=16,
         font_family='Helvetica',
     ))
-    # fig.update_traces(hovertemplate='%{hover_data}')
+    fig.update_traces(hovertemplate="%{customdata[0]} <br>" + f"{status.title()} Cases: " + "%{customdata[1]}")
     return fig
 
 

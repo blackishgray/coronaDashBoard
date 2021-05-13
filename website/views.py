@@ -14,8 +14,8 @@ def index(request):
 	return render(request, 'index.html', context=context)
 
 def india(request):
-    return render(request, 'dash_demo.html')
+    return render(request, 'india.html')
 
 def states(request):
-    return render(request, 'dash_demo1.html')
+    return render(request, 'states.html')
 
