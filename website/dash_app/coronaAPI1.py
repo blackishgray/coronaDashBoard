@@ -77,6 +77,7 @@ date = data_state_wise['lastupdatedtime'][0]
 data_state_wise = state_data()
 # data_state_wise.head()
 
+state_names = [{'label':a, 'value':a } for a in data_state_wise['state'].tolist()]
 
 #Making a overall i.e total counts of all the types of Cases reporte in a particular State 
 def overall_df(state):
@@ -158,7 +159,7 @@ def bar_graph_for_current(state,status):
     if status == 'active':
         clr = 'blue'
     elif status=='confirmed':
-        clr = 'darkorchid'
+        clr = 'aqua'
     elif status=='recovered':
         clr = 'green'
     else:

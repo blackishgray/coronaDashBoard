@@ -111,14 +111,16 @@ pd.set_option('display.max_columns', 42)
 
 # state_wise.dtypes[:3]
 
+
+
 chg_datetime(state_wise, ["Date", 'Date_YMD'])
 
 indian_states = {
     "AN":"Andaman and Nicobar Islands", "AP":"Andhra Pradesh", "AR":"Arunachal Pradesh", "AS":"Assam", "BR":"Bihar", "CG":"Chandigarh", "CH":"Chhattisgarh",
     "DN":"Dadra and Nagar Haveli", "DD":"Daman and Diu",    "DL":"Delhi", "GA":"Goa", "GJ":"Gujarat",    "HR":"Haryana",    "HP":"Himachal Pradesh",
-    "JK":"Jammu and Kashmir", "JH":"Jharkhand",  "KL":"Kerala",  "LA":"Ladakh", "LD":"Lakshadweep", "MP":"Madhya Pradesh", "MH":"Maharashtra", "MN":"Manipur",
+    "JK":"Jammu and Kashmir", "JH":"Jharkhand",  "KL":"Kerala", "KA":"Karnataka",  "LA":"Ladakh", "LD":"Lakshadweep", "MP":"Madhya Pradesh", "MH":"Maharashtra", "MN":"Manipur",
     "ML":"Meghalaya", "MZ":"Mizoram", "NL":"Nagaland", "OR":"Odisha", "PY":"Puducherry", "PB":"Punjab", "RJ":"Rajasthan", "SK":"Sikkim",
-    "TN":"Tamil Nadu",  "TS":"Telangana",  "TR":"Tripura",  "UP":"Uttar Pradesh",  "UK":"Uttarakhand",  "WB":"West Bengal"
+    "TN":"Tamil Nadu",  "TG":"Telangana",  "TR":"Tripura",  "UP":"Uttar Pradesh",  "UT":"Uttarakhand",  "WB":"West Bengal"
 }
 
 
@@ -132,7 +134,9 @@ state_wise['Maharashtra']  = abs(state_wise['Maharashtra'])
 
 state_wise[state_wise['Date']=='15/12/2020']
 
+state_names = state_wise.columns[4:]
 
+state_names_as_options=[{'label':a , 'value':a} for a in state_names]
 
 # state_df = [state_wise_confirmed, state_wise_deceased, state_wise_recovered]
 
@@ -415,6 +419,10 @@ def dose_administered(state, district):
 
 
 # dose_administered('Maharashtra', 'Mumbai')
+
+def cities_of_state(state):
+    cities = district_cases[district_cases['State']==state]['District'].unique()
+    return [{'label':a , 'value':a} for a in cities]
 
 
 

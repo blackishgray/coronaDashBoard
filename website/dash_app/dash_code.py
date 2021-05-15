@@ -5,6 +5,8 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 import plotly.graph_objs as go
+import dash_bootstrap_components as dbc
+
 from django_plotly_dash import DjangoDash
 
 #import for dash file
@@ -13,11 +15,11 @@ from website.dash_app import CoronaEDA2 as ceda
 
 from flask import send_from_directory
 
-app1 = DjangoDash('india_plot')
+app1 = DjangoDash('india_plot', suppress_callback_exceptions=True, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 ###################################################################
 #######figure 1 #################
-app1.layout = html.Div(style={"background-color":"rgb(17, 17, 17)"}, className='card', id='main-div', children=[
+app1.layout = html.Div(style={"background-color":"rgb(17, 17, 17)"}, id='main-div', children=[
 
 	html.Br(),
 

@@ -1,17 +1,26 @@
 {% extends 'layout.html' %}
 {% load plotly_dash %}
 
+<!DOCTYPE html>
 <html>
 <head>
 	{% block title %}<title>States</title>{% endblock %}
 </head>
 <body>
 	{% block content %}
-
-	<div class="container-fluid second-div">
+	<hr>
+	<div class="container-fluid first-div">
 		{% plotly_app name='first' ratio=1 %}
 	</div>
 	<br>
+	<div class="container-fluid first-div">
+		{% plotly_app name='second' ratio=1 %}
+	</div>
+	<br>
+	<div class="container-fluid first-div">
+		{% plotly_app name='third' ratio=1 %}
+	</div>
+
 
 	{% endblock %}
 </body>

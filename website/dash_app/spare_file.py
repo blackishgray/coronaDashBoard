@@ -1,3 +1,5 @@
+# import CoronaEDA2 as ceda 
+# print(ceda.cities_of_state('Kerala'))
 def sum(a, b):
 	return a + b
 # print(sum(3, 3))
