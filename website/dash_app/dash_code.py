@@ -36,8 +36,10 @@ app1.layout = html.Div(style={"background-color":"rgb(17, 17, 17)"}, id='main-di
 			value='confirmed',
 			),
 		html.Br(),
+		html.Div(className='card', children=[
 		dcc.Graph(id='india_map', config={'displayModeBar':False}),
 		]),
+	]),
 ])
 
 

@@ -1,27 +1,39 @@
 {% extends 'layout.html' %}
-{% load plotly_dash %}
 
 <!DOCTYPE html>
 <html>
 <head>
 	{% block title %}<title>States</title>{% endblock %}
+
+	{% load plotly_dash %}
+
 </head>
 <body>
 	{% block content %}
+
 	<hr>
 	<div class="container-fluid first-div">
-		{% plotly_app name='first' ratio=1 %}
+		<td>{% plotly_app name='first' ratio=0.40 %}</td>
 	</div>
 	<br>
+	<hr>
 	<div class="container-fluid first-div">
-		{% plotly_app name='second' ratio=1 %}
+		<td>{% plotly_app name='second' ratio=0.40 %}</td>
 	</div>
 	<br>
+	<hr>
 	<div class="container-fluid first-div">
-		{% plotly_app name='third' ratio=1 %}
+		<td>{% plotly_app name='third' ratio=0.40 %}</td>
 	</div>
+	<br>
 
+
+	<div class="contanier-fluid">
+		<h3>Have you registered yourself for vaccine yet?</h3>
+		<h3>If not the head over to this <a href="http://selfregistration.cowin.gov.in/" target="_blank">link</a> to get your first jab of vaccine and help <b>India</b> fight Corona</h3>
+	</div>
 
 	{% endblock %}
+	
 </body>
 </html>

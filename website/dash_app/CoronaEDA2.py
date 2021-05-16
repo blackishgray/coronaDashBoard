@@ -154,7 +154,7 @@ def plot_trend_line(state, status):
         font_family='Helvetica',
     ))
     fig.update_xaxes(rangeslider_visible=True, showgrid=False)
-    fig.update_yaxes(title=f"{df['Status'][0]} Cases of COVID-19", showgrid=False, showline=True, linewidth=2, linecolor='white')
+    fig.update_yaxes(title=f"{df['Status'][0]} Cases of COVID-19 in {state.title()}", showgrid=False, showline=True, linewidth=2, linecolor='white')
     fig.update_traces(hovertemplate="%{y}", mode='markers',showlegend=False)
     return fig
 
