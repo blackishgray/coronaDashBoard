@@ -15,10 +15,6 @@ body {
   background-color: rgba(17, 17, 17, 1);
 }
 
-.send-div{
-	height: 600px;
-}
-
 h2{	
 	color:white;
 }
@@ -31,8 +27,4 @@ h2{
 
 .dropdown-item{
   height: 30px
-}
-
-.first-div iframe{
-  height: 600px;
 }

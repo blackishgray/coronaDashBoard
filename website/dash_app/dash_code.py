@@ -19,11 +19,9 @@ app1 = DjangoDash('india_plot', suppress_callback_exceptions=True, external_styl
 
 ###################################################################
 #######figure 1 #################
-app1.layout = html.Div(style={"background-color":"rgb(17, 17, 17)"}, id='main-div', children=[
+app1.layout = html.Div(style={'background-color':'rgba(17, 17, 17, 1)', 'height':'540px'}, id='main-div', children=[
 
 	html.Br(),
-
-	html.Div(className='card', id='div1', style={'text-align': 'center'}, children=[
 
 		dcc.Dropdown(className='dropdown',id='dropdown-1',
 			style={'width':'200px'},
@@ -36,10 +34,9 @@ app1.layout = html.Div(style={"background-color":"rgb(17, 17, 17)"}, id='main-di
 			value='confirmed',
 			),
 		html.Br(),
-		html.Div(className='card', children=[
-		dcc.Graph(id='india_map', config={'displayModeBar':False}),
+		html.Div(style={'background-color':'rgba(17, 17, 17, 1)'}, className='card', children=[
+			dcc.Graph(id='india_map', config={'displayModeBar':False}),
 		]),
-	]),
 ])
 
 
@@ -60,7 +57,7 @@ app2 = DjangoDash('total_cases_india_line_graph')
 app2.layout = html.Div(className='card', children=[
 	html.Br(),
 
-	html.Div(className='card', id='div2', style={'text-align': 'center'}, children=[
+	html.Div(className='card', id='div2', children=[
 
 		html.Br(),
 		dcc.Graph(figure=ceda.total_cases_india(), config={'displayModeBar':False}),
@@ -116,14 +113,12 @@ app4.layout = html.Div(children=[
 
 app5 = DjangoDash('vaccine_1')
 
-
 app5.layout = html.Div(children=[
 	dcc.Graph(figure=ceda.vaccine_administered('India'), config={'displayModeBar':False}),
 ])
 
 
 app6 = DjangoDash('vaccine_2')
-
 
 app6.layout = html.Div(children=[
 	dcc.Graph(figure=ceda.vaccine_total_doses('India'), config={'displayModeBar':False}),
@@ -132,11 +127,9 @@ app6.layout = html.Div(children=[
 
 app7 = DjangoDash('vaccine_3')
 
-
 app7.layout = html.Div(style={'height':'600px'}, children=[
 	dcc.Graph(figure=ceda.aefi('India'), config={'displayModeBar':False}),
 ])
-
 
 
 app8 = DjangoDash('pie_india')

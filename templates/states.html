@@ -10,24 +10,70 @@
 </head>
 <body>
 	{% block content %}
-
-	<hr>
-	<div class="container-fluid first-div">
-		<td>{% plotly_app name='first' ratio=0.40 %}</td>
-	</div>
 	<br>
-	<hr>
-	<div class="container-fluid first-div">
-		<td>{% plotly_app name='second' ratio=0.40 %}</td>
-	</div>
 	<br>
-	<hr>
-	<div class="container-fluid first-div">
-		<td>{% plotly_app name='third' ratio=0.40 %}</td>
+	<ul class="nav nav-tabs" id="myTab" role="tablist">
+		<li class="nav-item">
+			<a class="nav-link active" id="cases-tab" data-toggle="tab" href="#cases" role="tab" aria-controls="cases" aria-selected="true">Cases</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" id="vaccine-tab" data-toggle="tab" href="#vaccine" role="tab" aria-controls="vaccine" aria-selected="false">Vaccine</a>
+		</li>
+	</ul>
+	<div class="tab-content" id="myTabContent">
+		<div class="tab-pane show active" id="cases" role="tabpanel" aria-labelledby="cases-tab">
+			<div id="cases" class="tab-pane active">
+				<div class="row flex">
+					<div class="col-md-6 container-fluid first-div">
+						{% plotly_app name='india_plot' ratio=0.80 %}
+					</div>
+					<div class="col-md-6 container-fluid first-div">
+						<div class="container-fluid">
+							{% plotly_app name='first' ratio=0.40 %} 
+						</div>
+						<br>
+						<br>
+						<div class="container-fluid">
+							{% plotly_app name='second' ratio=0.40 %}
+						</div>
+						<br>
+						<br>
+						<div class="container-fluid">
+							{% plotly_app name='third' ratio=0.40 %}
+						</div>
+					</div>
+				</div>
+				
+			</div> 
+		</div>
+		<div class="tab-pane" id="vaccine" role="tabpanel" aria-labelledby="vaccine-tab">
+			<div id="vaccine" class="tab-pane">
+				<h1>Vaccination</h1>
+				<br>
+				<div class="row flex">
+					<div class="col-md-6 contanier-fluid first-div">
+						{% plotly_app name='state_vaccine_1' ratio=1 %}
+					</div>
+					<br>
+
+					<div class="col-md-6 contanier-fluid first-div">
+						{% plotly_app name='state_vaccine_2' ratio=1 %}
+					</div>
+					<br>
+				</div>
+				<div class="row flex">
+					<div class="col-md-6 contanier-fluid first-div">
+						{% plotly_app name='state_vaccine_3' ratio=1 %}
+					</div>
+					<div class="col-md-6 contanier-fluid first-div">
+						{% plotly_app name='state_pie_india' ratio=1 %}
+					</div>
+				</div>
+				<br>
+			</div>
+		</div>
 	</div>
-	<br>
-
-
+	
 	<div class="contanier-fluid">
 		<h3>Have you registered yourself for vaccine yet?</h3>
 		<h3>If not the head over to this <a href="http://selfregistration.cowin.gov.in/" target="_blank">link</a> to get your first jab of vaccine and help <b>India</b> fight Corona</h3>
