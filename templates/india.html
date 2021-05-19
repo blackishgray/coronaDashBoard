@@ -21,47 +21,130 @@
 	<div class="tab-content" id="myTabContent">
 		<div class="tab-pane show active" id="cases" role="tabpanel" aria-labelledby="cases-tab">
 			<div id="cases" class="tab-pane active">
-				<div class="continer-fluid first-div">
-					<td>{% plotly_app name='daily_cases' ratio=1 %}</td>
+				<div class="card">
+					{% plotly_app name='total_cases_india_line_graph' ratio=1 %}
+				</div>
+				<div class="row flex">
+					<div class="col-md-6">
+						<div class="card">
+							{% plotly_app name='india_plot' ratio=0.82 %}
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="card">
+							{% plotly_app name='daily_cases' ratio=1 %}
+						</div>
+					</div>
 				</div>
 				<br>
-				<div class="contanier-fluid">
+				<div class="row flex">
+					<div class="col-lg-6">
+						<div class="card">
+							{% plotly_app name='first' ratio=1 %} 
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="card">
+							{% plotly_app name='second' ratio=1 %}
+						</div>
+					</div>
+				</div>
+				<div class="row flex">
+					<div class="col-md-6">
+						<div class="card">
+							{% plotly_app name='third' ratio=1 %} 
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="card">
+							{% plotly_app name='district_wise_cases' ratio=1 %}
+						</div>
+					</div>
+				</div>
+				<!-- <div class="row flex">
+					<div class="col-md-6">
+						<div class="container-fluid first-div">
+							{% plotly_app name='india_plot' ratio=0.84 %}
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="continer-fluid first-div">
+							<td>{% plotly_app name='daily_cases' ratio=1 %}</td>
+						</div>
+					</div>
+				</div>
+				<div class="contanier-fluid first-div">
 					<td>{% plotly_app name='total_cases_india_line_graph' ratio=1 %}</td>
 				</div>
-				<br>
-			</div> 
+				<div class="row flex third-div">
+					<div class="col-md-6 contanier-fluid first-div">
+						{% plotly_app name='first' ratio=1 %} 
+					</div>
+					<br>
+					<div class="col-md-6 contanier-fluid first-div">
+						{% plotly_app name='second' ratio=1 %}
+					</div>
+					<br>
+				</div>
+				<div class="row flex third-div">
+					<div class="col-md-6 contanier-fluid first-div">
+						{% plotly_app name='third' ratio=1 %}
+					</div>
+					<br>
+					<div class="col-md-6 contanier-fluid first-div">
+						{% plotly_app name='district_wise_cases' ratio=1 %}
+					</div>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</div> -->
+			</div>
 		</div>
 		<div class="tab-pane" id="vaccine" role="tabpanel" aria-labelledby="vaccine-tab">
 			<div id="vaccine" class="tab-pane">
 				<h1>Vaccination</h1>
 				<br>
 				<div class="row flex">
-					<div class="col-md-6 contanier-fluid first-div">
-						{% plotly_app name='vaccine_1' ratio=1 %}
+					<div class="col-md-6 contanier-fluid third-div">
+						{% plotly_app name='state_vaccine_1' ratio=1 %}
 					</div>
 					<br>
 
-					<div class="col-md-6 contanier-fluid first-div">
-						{% plotly_app name='vaccine_2' ratio=1 %}
+					<div class="col-md-6 contanier-fluid third-div">
+						{% plotly_app name='state_vaccine_2' ratio=1 %}
 					</div>
 					<br>
 				</div>
 				<div class="row flex">
-					<div class="col-md-6 contanier-fluid first-div">
-						{% plotly_app name='vaccine_3' ratio=1 %}
+					<div class="col-md-6 contanier-fluid third-div">
+						{% plotly_app name='state_vaccine_3' ratio=1 %}
 					</div>
-					<div class="col-md-6 contanier-fluid first-div">
-						{% plotly_app name='pie_india' ratio=1 %}
+					<div class="col-md-6 contanier-fluid third-div">
+						{% plotly_app name='state_pie_india' ratio=1 %}
 					</div>
 				</div>
 				<br>
+				<div class="row flex">
+					<div class="col-md-6 contanier-fluid third-div">
+						{% plotly_app name='state_vaccine_3' ratio=1 %}
+					</div>
+					<div class="col-md-6 contanier-fluid third-div">
+						{% plotly_app name='district_wise_vaccine_plot' ratio=1 %}
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="contanier-fluid">
-		<h3>Have you registered yourself for vaccine yet?</h3>
-		<h3>If not the head over to this <a href="http://selfregistration.cowin.gov.in/" target="_blank">link</a> to get your first jab of vaccine and help <b>India</b> fight Corona</h3>
-	</div>
-	{% endblock %}
+</div>
+<br>
+<br>
+<br>
+<div class="contanier-fluid">
+	<h3>Have you registered yourself for vaccine yet?</h3>
+	<h3>If not the head over to this <a href="http://selfregistration.cowin.gov.in/" target="_blank">link</a> to get your first jab of vaccine and help <b>India</b> fight Corona</h3>
+</div>
+{% endblock %}
 </body>
 </html>

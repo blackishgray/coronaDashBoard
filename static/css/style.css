@@ -5,13 +5,18 @@ body {
   margin: 0 auto;
 }
 .card{
-	height: 100%;
-	width: 600px;
+	height: 600px;
+	width: 100%;
   background-color: rgb(17, 17, 17);
 }
 
 .first-div{
 	height: 600px;
+  background-color: rgba(17, 17, 17, 1);
+}
+
+.third-div{
+  height: 500px;
   background-color: rgba(17, 17, 17, 1);
 }
 
@@ -28,3 +33,4 @@ h2{
 .dropdown-item{
   height: 30px
 }
+NN

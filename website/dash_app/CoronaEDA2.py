@@ -212,6 +212,7 @@ vaccine_state_wise = pd.read_csv(url_vaccine_state)
 vaccine_state_wise['Updated On'] = pd.to_datetime(vaccine_state_wise['Updated On'], dayfirst=True, yearfirst=False)
 
 
+vaccine_state_list=[{'label':a, 'value':a} for a in vaccine_state_wise['State'].unique()]
 
 # vaccine_state_wise.columns
 
@@ -299,7 +300,11 @@ district_vaccine.drop(['S No', 'State_Code',  'District_Key', 'Cowin Key'], inpl
 
 # district_vaccine.head()
 
+vaccine_state_list_for_district = [{'label':a, 'value':a} for a in district_vaccine['State'].unique()][1:]
 
+def make_district_list(state):
+    list_2 = district_vaccine[district_vaccine['State']==state]['District'].unique()
+    return [{'label':a, 'value':a} for a in list_2]
 
 # transforming the dataframe into a much more readable form 
 # also for vizualuzation dataframe needs to be in a ceartain orientation

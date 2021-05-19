@@ -9,6 +9,7 @@ import json
 import matplotlib.pyplot as plt 
 import plotly.express as px
 import plotly.graph_objects as go
+import pickle
 
 # from datetime import datetime, timedelta
 
@@ -169,7 +170,7 @@ def bar_graph_for_current(state,status):
         font_size=20,
         font_family='Helvetica',
     ))
-    fig.update_traces(hovertemplate='%{y}')
+    fig.update_traces(hovertemplate='%{x} : %{y}')
     fig.update_yaxes(title=f'{status.capitalize()}', showgrid=False)
     fig.update_xaxes(title=f'{state.capitalize()}', showgrid=False)
     return fig
@@ -196,7 +197,7 @@ def bar_graph_overall(state, status):
                          font_size=20,
                          font_family='Helvetica'
                      ))
-    fig.update_traces(hovertemplate='%{y}')
+    fig.update_traces(hovertemplate='%{x} : %{y}')
     fig.update_xaxes(showgrid=False)
     fig.update_yaxes(showgrid=False)
     return fig
@@ -210,24 +211,26 @@ geolocator = Nominatim(user_agent='app')
 
 list1 = data_state_wise['state']
 
-lat_lon1 = []
-for i in list1:
-    i = geolocator.geocode(i)
-    if i is None:
-        lat_lon1.append(np.nan)
-    else:
-        geo = (i.latitude, i.longitude)
-        lat_lon1.append(geo)
+# lat_lon1 = []
+# for i in list1:
+#     i = geolocator.geocode(i)
+#     if i is None:
+#         lat_lon1.append(np.nan)
+#     else:
+#         geo = (i.latitude, i.longitude)
+#         lat_lon1.append(geo)
 
+with open ('C:/Users/Ratnadeep Gawade/Desktop/python/django/coronaApp/app/website/dash_app/list_1.ob', 'rb') as fp:
+    list_1 = pickle.load(fp)
 
-data_state_wise['locations'] = lat_lon1
+# data_state_wise['locations'] 
 
 data_state_wise.dropna(inplace=True)
 
-lat, lon = zip(*np.array(data_state_wise['locations']))
+lat, lon = zip(*np.array(list_1))
 
-data_state_wise['lat'] = lat
-data_state_wise['lon'] = lon
+data_state_wise['lat'] = lat[:-1]
+data_state_wise['lon'] = lon[:-1]
 
 
 # data_state_wise.head()

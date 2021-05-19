@@ -7,6 +7,8 @@
 
 	{% load plotly_dash %}
 
+	{% plotly_header %}
+
 </head>
 <body>
 	{% block content %}
@@ -24,26 +26,20 @@
 		<div class="tab-pane show active" id="cases" role="tabpanel" aria-labelledby="cases-tab">
 			<div id="cases" class="tab-pane active">
 				<div class="row flex">
-					<div class="col-md-6 container-fluid first-div">
-						{% plotly_app name='india_plot' ratio=0.80 %}
+					<div class="container-fluid second-div">
+						{% plotly_app name='first' ratio=0.40 %} 
 					</div>
-					<div class="col-md-6 container-fluid first-div">
-						<div class="container-fluid">
-							{% plotly_app name='first' ratio=0.40 %} 
-						</div>
-						<br>
-						<br>
-						<div class="container-fluid">
-							{% plotly_app name='second' ratio=0.40 %}
-						</div>
-						<br>
-						<br>
-						<div class="container-fluid">
-							{% plotly_app name='third' ratio=0.40 %}
-						</div>
+					<br>
+					<br>
+					<div class="container-fluid second-div">
+						{% plotly_app name='second' ratio=0.40 %}
+					</div>
+					<br>
+					<br>
+					<div class="container-fluid second-div">
+						{% plotly_app name='second' ratio=0.40 %}
 					</div>
 				</div>
-				
 			</div> 
 		</div>
 		<div class="tab-pane" id="vaccine" role="tabpanel" aria-labelledby="vaccine-tab">
@@ -51,21 +47,21 @@
 				<h1>Vaccination</h1>
 				<br>
 				<div class="row flex">
-					<div class="col-md-6 contanier-fluid first-div">
+					<div class="col-md-6 contanier-fluid second-div">
 						{% plotly_app name='state_vaccine_1' ratio=1 %}
 					</div>
 					<br>
 
-					<div class="col-md-6 contanier-fluid first-div">
+					<div class="col-md-6 contanier-fluid second-div">
 						{% plotly_app name='state_vaccine_2' ratio=1 %}
 					</div>
 					<br>
 				</div>
 				<div class="row flex">
-					<div class="col-md-6 contanier-fluid first-div">
+					<div class="col-md-6 contanier-fluid second-div">
 						{% plotly_app name='state_vaccine_3' ratio=1 %}
 					</div>
-					<div class="col-md-6 contanier-fluid first-div">
+					<div class="col-md-6 contanier-fluid second-div">
 						{% plotly_app name='state_pie_india' ratio=1 %}
 					</div>
 				</div>
@@ -82,4 +78,5 @@
 	{% endblock %}
 	
 </body>
+{% plotly_footer %}
 </html>
