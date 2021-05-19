@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Index</title>
+	{% block title %}<title>Index</title>{% endblock %}
 </head>
 <body>
 
 	{% block content %}
-	 {{name}}
-	 {{a}}
+	{{name}}
+	{{a}}
 	{% endblock %}
 </body>
 </html>

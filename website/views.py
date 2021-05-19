@@ -13,8 +13,8 @@ def index(request):
 	}
 	return render(request, 'index.html', context=context)
 
-def india(request):
-    return render(request, 'india.html')
+def dashboard(request):
+    return render(request, 'dashboard.html')
 
 def states(request):
     return render(request, 'states.html')

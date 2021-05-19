@@ -272,7 +272,7 @@ def aefi(state):
 # Pie chart of each gender count in a particular state 
 def gender_dis(state):
     df = vaccine_state_wise[vaccine_state_wise['State']==state]
-    values = [np.sum(df['Male(Individuals Vaccinated)'][:-2]), np.sum(df['Female(Individuals Vaccinated)'][:-2]), np.sum(df['Transgender(Individuals Vaccinated)'][:-2])]
+    values = [np.sum(df['Male(Individuals Vaccinated)']), np.sum(df['Female(Individuals Vaccinated)']), np.sum(df['Transgender(Individuals Vaccinated)'])]
     labels = ['Male', 'Female', 'Transgender']
 
     fig = px.pie(values=values, names=labels, hole=0.4, color_discrete_sequence=['dimgrey', 'white'])

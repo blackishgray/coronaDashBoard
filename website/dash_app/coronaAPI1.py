@@ -192,7 +192,7 @@ def bar_graph_overall(state, status):
     else:
         clr = 'red'
     fig = px.bar(overall_district_wise, x=overall_district_wise['District'], y=status.capitalize(), color_discrete_sequence=[clr])
-    fig.update_layout(title= f"Overall status of {status.capitalize()} Cases of COVID-19 in {state.title()} as of {date}", template='plotly_dark', 
+    fig.update_layout(title= f"Overall status of {status.capitalize()} Cases of COVID-19 in {state.title()}", template='plotly_dark', 
                      hoverlabel=dict(
                          font_size=20,
                          font_family='Helvetica'
@@ -268,7 +268,7 @@ def india_cases(status):
         opacity=0.5,
         custom_data=['state', f'{status.lower()}'] 
     )
-    fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0}, title = f"Status of overall   COVID-19 Cases in India.", template='plotly_dark', hoverlabel=dict(
+    fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0}, title = f"Status of overall COVID-19 Cases in India.", template='plotly_dark', hoverlabel=dict(
         bgcolor=clr,
         font_size=16,
         font_family='Helvetica',
