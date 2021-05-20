@@ -182,3 +182,12 @@ X_FRAME_OPTIONS = 'ALLOWALL'
 XS_SHARING_ALLOWED_METHODS = ['POST','GET','OPTIONS', 'PUT', 'DELETE']
 
 mimetypes.add_type("text/css", ".css", True)
+
+###############email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'gawaderatnadeep04@gmail.com'
+EMAIL_HOST_PASSWORD = 'Ratnadeep04.'
+EMAIL_USE_TLS = True

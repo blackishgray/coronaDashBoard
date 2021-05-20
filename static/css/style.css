@@ -5,9 +5,30 @@ body {
   margin: 0 auto;
 }
 .card{
-	height: 600px;
-	width: 100%;
+  color: white;
+  height: 427px;
+  width: 100%;
   background-color: rgb(17, 17, 17);
+  text-align: left;
+  border: 1px solid white;
+  margin: 20px auto;
+  transition: transform 250ms;
+}
+.card:hover{
+  transform: translateX(10px);
+}
+
+.btn{
+  /*float: right;*/
+  width: 100px;
+}
+
+.card-btn{
+  text-align: center;
+}
+
+a{
+  color: white;
 }
 
 .first-div{
@@ -35,9 +56,22 @@ h2{
 }
 
 footer {
-  position: sticky;
+  position: bottom;
   left: 0;
   bottom: 0;
   width: 100%;
   text-align: center;
+}
+
+.index-main-div{
+  height: 500px;
+  width: 500px;
+  margin :10px auto;
+
+}
+
+iframe{
+  height: 500px;
+  width: 500px;
+
 }
