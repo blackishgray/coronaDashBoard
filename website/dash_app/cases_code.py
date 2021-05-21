@@ -53,7 +53,7 @@ def figure1(status):
 
 
 
-app2 = DjangoDash('total_cases_india_line_graph')
+app2 = DjangoDash('total_cases_india_line_graph', external_stylesheets=[external_stylesheets])
 
 app2.layout = html.Div(children=[
 	html.Br(),
@@ -104,7 +104,7 @@ app4.layout = html.Div(children=[
 		html.Div(className='row', children=[
 			html.Div(className='six columns', children=[
 				dcc.Dropdown(id='dropdown-1', options=ceda.state_names_as_options, value="Maharashtra"),
-		], style=dict(width='40%')),
+		], style=dict(width='50%')),
 
 		html.Div(className='col-md-6', children=[
 			dcc.Dropdown(id='dropdown-2',
@@ -116,7 +116,7 @@ app4.layout = html.Div(children=[
 				],
 				value='confirmed',
 			),
-		], style=dict(width='40%', float='right'))
+		], style=dict(width='50%', float='right'))
 	], style=dict(display='flex')),
 
 	html.Div(className='card', children=[

@@ -6,5 +6,5 @@ from website.dash_app import CoronaEDA2, coronaAPI1, cases_code, vaccine_code
 urlpatterns = [
 	path('', views.index, name='index'),
 	path('india', views.dashboard, name='dashboard'),
-	path('form', views.form, name='form'),
+	path('resources', views.resources, name='resources')
 ]
