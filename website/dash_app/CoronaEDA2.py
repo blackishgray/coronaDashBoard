@@ -209,7 +209,7 @@ vaccine_state_wise = pd.read_csv(url_vaccine_state)
 
 
 
-vaccine_state_wise['Updated On'] = pd.to_datetime(vaccine_state_wise['Updated On'], dayfirst=True, yearfirst=False)
+vaccine_state_wise['Updated On'] = pd.to_datetime(vaccine_state_wise['Updated On'], dayfirst=True, yearfirst=False, errors='coerce')
 
 
 vaccine_state_list=[{'label':a, 'value':a} for a in vaccine_state_wise['State'].unique()]

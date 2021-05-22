@@ -5,7 +5,7 @@ from website.dash_app import dash_code, states_code
 
 # Create your views here.
 def index(request):
-	return render(request, 'index.html', context=context)
+	return render(request, 'index.html')
 
 def dashboard(request):
     return render(request, 'dashboard.html')
