@@ -211,24 +211,24 @@ geolocator = Nominatim(user_agent='app')
 
 list1 = data_state_wise['state']
 
-# lat_lon1 = []
-# for i in list1:
-#     i = geolocator.geocode(i)
-#     if i is None:
-#         lat_lon1.append(np.nan)
-#     else:
-#         geo = (i.latitude, i.longitude)
-#         lat_lon1.append(geo)
+lat_lon1 = []
+for i in list1:
+    i = geolocator.geocode(i)
+    if i is None:
+        lat_lon1.append(np.nan)
+    else:
+        geo = (i.latitude, i.longitude)
+        lat_lon1.append(geo)
 
-with open(r'list2.ob', 'rb') as fp:
-    list_1 = pickle.load(fp)
+# with open(r'list2.ob', 'rb') as fp:
+#     list_1 = pickle.load(fp)
 # print(list_1)
 
 # data_state_wise['locations'] 
 
 data_state_wise.dropna(inplace=True)
 
-lat, lon = zip(*np.array(list_1))
+lat, lon = zip(*np.array(lat_lon1))
 
 data_state_wise['lat'] = lat[:-1]
 data_state_wise['lon'] = lon[:-1]
