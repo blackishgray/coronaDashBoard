@@ -30,6 +30,22 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'coviddashboardindia.herokuapp.com']
 
 USE_X_FORWARDED_PORT = True
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+             'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+        },
+    },
+}
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -187,4 +203,5 @@ XS_SHARING_ALLOWED_METHODS = ['POST','GET','OPTIONS', 'PUT', 'DELETE']
 mimetypes.add_type("text/css", ".css", True)
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
