@@ -220,10 +220,6 @@ for i in list1:
         geo = (i.latitude, i.longitude)
         lat_lon1.append(geo)
 
-# with open(r'list2.ob', 'rb') as fp:
-#     list_1 = pickle.load(fp)
-# print(list_1)
-
 # data_state_wise['locations'] 
 
 data_state_wise.dropna(inplace=True)
