@@ -220,7 +220,7 @@ list1 = data_state_wise['state']
 #         geo = (i.latitude, i.longitude)
 #         lat_lon1.append(geo)
 
-with open(r'C:\Users\Ratnadeep Gawade\Desktop\python\django\coronaApp\app\website\dash_app\list2.ob', 'rb') as fp:
+with open(r'list2.ob', 'rb') as fp:
     list_1 = pickle.load(fp)
 
 # data_state_wise['locations'] 
