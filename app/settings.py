@@ -26,8 +26,9 @@ SECRET_KEY = 'django-insecure-1lv&y5h8e-2hj6#)1khb@+280ij@td)=f5*9cl1muyflnd*%a2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'coviddashboardindia.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'coviddashboardindia.herokuapp.com']
 
+USE_X_FORWARDED_PORT = True
 
 # Application definition
 

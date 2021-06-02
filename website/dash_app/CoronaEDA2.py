@@ -298,6 +298,25 @@ district_vaccine = pd.read_csv(url_vaccine_indian_district)
 
 district_vaccine.drop(['S No', 'State_Code',  'District_Key', 'Cowin Key'], inplace=True, axis=1)
 
+list_of_dates = district_vaccine.columns[2:].tolist()
+
+import re 
+
+#using regex to filter through the dates in columnes since the api update is not proper
+
+srch = re.compile('[A-Za-z]')
+
+#iterating over each element in the dates 
+list_of_dates_filtered = []
+for i in list_of_dates:
+    match = srch.search(i)
+
+    if match: #if we do find a match the  condition evaluates to true  
+        pass
+    else: 
+        list_of_dates_filtered.append(i)
+
+
 # district_vaccine.head()
 
 vaccine_state_list_for_district = [{'label':a, 'value':a} for a in district_vaccine['State'].unique()][1:]
@@ -312,7 +331,7 @@ def make_district_list(state):
 # main df into a much more process friendly orientation
 def new_df(state, district):
     df = district_vaccine[(district_vaccine['State']==state)&(district_vaccine['District']==district)]
-    list_of_dates = df.columns[2:].tolist()
+    list_of_dates = list_of_dates_filtered
     for i in range(len(list_of_dates)):
         list_of_dates[i] = list_of_dates[i].split('.')[0]
     list_series = pd.Series(list_of_dates)

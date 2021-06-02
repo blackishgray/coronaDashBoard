@@ -15,9 +15,9 @@ from website.dash_app import CoronaEDA2 as ceda
 
 from flask import send_from_directory
 
-external_stylesheets =  r'C:/Users/Ratnadeep Gawade/Desktop/python/django/coronaApp/app/website/assets/style.css'
+# external_stylesheets =  r'C:/Users/Ratnadeep Gawade/Desktop/python/django/coronaApp/app/website/assets/style.css'
 
-app1 = DjangoDash('india_plot', suppress_callback_exceptions=True, external_stylesheets=[external_stylesheets])
+app1 = DjangoDash('india_plot', suppress_callback_exceptions=True)
 
 ###################################################################
 #######figure 1 #################
@@ -53,7 +53,7 @@ def figure1(status):
 
 
 
-app2 = DjangoDash('total_cases_india_line_graph', external_stylesheets=[external_stylesheets])
+app2 = DjangoDash('total_cases_india_line_graph')
 
 app2.layout = html.Div(children=[
 	html.Br(),
@@ -67,7 +67,7 @@ app2.layout = html.Div(children=[
 
 # #########################################################
 # #################figure 3 ######################
-app3 = DjangoDash('daily_cases', external_stylesheets=[external_stylesheets])
+app3 = DjangoDash('daily_cases')
 
 app3.layout = html.Div(children=[
 
@@ -132,7 +132,7 @@ def figure1(state, status):
 	return ceda.plot_trend_line(state, status)
 
 
-app5 = DjangoDash('second', suppress_callback_exceptions=True, external_stylesheets=[external_stylesheets])
+app5 = DjangoDash('second', suppress_callback_exceptions=True)
 
 app5.layout = html.Div(children=[
 	html.Br(),
