@@ -222,6 +222,7 @@ list1 = data_state_wise['state']
 
 with open(r'list2.ob', 'rb') as fp:
     list_1 = pickle.load(fp)
+# print(list_1)
 
 # data_state_wise['locations'] 
 
