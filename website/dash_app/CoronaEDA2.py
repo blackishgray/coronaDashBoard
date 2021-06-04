@@ -302,12 +302,15 @@ list_of_dates = district_vaccine.columns[2:].tolist()
 
 import re 
 
-#using regex to filter through the dates in columnes since the api update is not proper
 
+
+list_of_dates_filtered = []
+
+
+#using regex to filter through the dates in columnes since the api update is not proper
 srch = re.compile('[A-Za-z]')
 
 #iterating over each element in the dates 
-list_of_dates_filtered = []
 for i in list_of_dates:
     match = srch.search(i)
 
