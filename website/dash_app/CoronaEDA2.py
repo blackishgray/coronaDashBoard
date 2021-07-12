@@ -220,7 +220,7 @@ vaccine_state_list=[{'label':a, 'value':a} for a in vaccine_state_wise['State'].
 def vaccine_administered(state):
     df = vaccine_state_wise[vaccine_state_wise['State']==state]
     fig = px.area(data_frame=df, x='Updated On', y=['Total Doses Administered', 'Second Dose Administered', 'First Dose Administered', 
-                                                    'Total Covaxin Administered', 'Total CoviShield Administered'])
+                                                   ' Covaxin (Doses Administered)', 'CoviShield (Doses Administered)', 'Sputnik V (Doses Administered)'])
     fig.update_layout(title=f'Total Count of Vaccinces Administered in {state} till date.', template='plotly_dark', hovermode='x unified', hoverlabel=dict(
         font_family='Helvetica',
         font_size=12,
@@ -238,7 +238,7 @@ def vaccine_administered(state):
 # Vizulation of number of individuals vaccinated on the basis of gender
 def vaccine_total_doses(state):
     df = vaccine_state_wise[vaccine_state_wise['State']==state]
-    fig = px.area(data_frame=df, x='Updated On', y=['Transgender(Individuals Vaccinated)','Female(Individuals Vaccinated)',  'Male(Individuals Vaccinated)', 'Total Doses Administered',])
+    fig = px.area(data_frame=df, x='Updated On', y=['Male (Doses Administered)', 'Female (Doses Administered)', 'Transgender (Doses Administered)', 'Total Doses Administered',])
     fig.update_layout(title=f'Gender Distribution of Vaccinated Individuals in {state}', template='plotly_dark', hovermode='x unified', hoverlabel=dict(
         font_family='Helvetica',
         font_size=12,
@@ -272,7 +272,7 @@ def aefi(state):
 # Pie chart of each gender count in a particular state 
 def gender_dis(state):
     df = vaccine_state_wise[vaccine_state_wise['State']==state]
-    values = [np.sum(df['Male(Individuals Vaccinated)']), np.sum(df['Female(Individuals Vaccinated)']), np.sum(df['Transgender(Individuals Vaccinated)'])]
+    values = [np.sum(df['Male (Doses Administered)']), np.sum(df['Female (Doses Administered)']), np.sum(df['Transgender (Doses Administered)'])]
     labels = ['Male', 'Female', 'Transgender']
 
     fig = px.pie(values=values, names=labels, hole=0.4, color_discrete_sequence=['dimgrey', 'white'])

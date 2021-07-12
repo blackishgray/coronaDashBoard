@@ -1,0 +1,81 @@
+body {
+  background-color: rgba(18,  18, 17, 1);
+  color: #FFF;
+  text-align: center;
+  margin: 0 auto;
+}
+.card{
+  color: white;
+  height: 427px;
+  width: 100%;
+  background-color: rgb(17, 17, 17);
+  text-align: left;
+  border: 1px solid white;
+  margin: 20px auto;
+  transition: transform 250ms;
+}
+.card:hover{
+  transform: translateX(10px);
+}
+
+.btn{
+  /*float: right;*/
+  width: 100px;
+}
+
+.card-btn{
+  text-align: center;
+}
+
+a{
+  color: white;
+}
+
+.first-div{
+	height: 600px;
+  background-color: rgba(17, 17, 17, 1);
+}
+
+.third-div{
+  height: 500px;
+  background-color: rgba(17, 17, 17, 1);
+}
+
+h2{	
+	color:white;
+}
+
+#drop-menu{
+  border: 1px solid;
+  background-color: darkgray;
+  color: white;
+}
+
+.dropdown-item{
+  height: 30px
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.index-main-div{
+  height: 500px;
+  width: 500px;
+  margin :10px auto;
+
+}
+
+iframe {
+  height: 500px;
+  width: 500px;
+
+}
+
+.div-india-plot{
+  height: 500px;
+}
