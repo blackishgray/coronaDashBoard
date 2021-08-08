@@ -117,6 +117,9 @@ DATABASES = {
         'HOST':'ec2-54-197-100-79.compute-1.amazonaws.com',
     }
 }
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 # postgres://mbdhnuoduganpy:18a1b3f083a59e8ad94096ae40d45706cd4876d142938806c417c99411e6dcec@ec2-54-197-100-79.compute-1.amazonaws.com:5432/dcpqmj154jkh8b
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
